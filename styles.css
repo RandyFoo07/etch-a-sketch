@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    align-self: center;
+    margin: 5px 0;
+}
+
+.sketchArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sketchPad {   
+    position: relative;
+    background-color: #f3f3f3;
+    margin: 0 50px;
+    height: 90vh;
+    width: 90vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);   
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90vh;
+}
+
+.left button {
+    font-size: 20px;
+    width: 100px;
+    height: 100px;
+    border: solid 1px transparent;
+    border-radius: 50%;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90vh;
+}
