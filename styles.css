@@ -28,8 +28,6 @@ header h1 {
     height: 90vh;
     width: 90vh;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
-    grid-template-rows: repeat(auto-fit, 1fr);   
 }
 
 .left {
@@ -52,4 +50,9 @@ header h1 {
     flex-direction: column;
     justify-content: flex-start;
     height: 90vh;
+}
+
+.squareDiv {
+    background-color: #fff;
+    border: solid 0.5px #f3f3f3;
 }
