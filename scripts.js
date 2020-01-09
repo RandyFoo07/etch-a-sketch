@@ -6,9 +6,11 @@ const eraseButton = document.querySelector('.left #erase');
 let size = 16;
 let squareDiv = [];
 let eraseToggled = true;
+let colorSelection = 'black';
 
 setSize(size, squareDiv);
 
+document.querySelector('#colorPicker').onchange = getColor;
 resizeButton.addEventListener('click', resizeBoard);
 clearButton.addEventListener('click', clearBoard);
 eraseButton.addEventListener('click', toggleErase);
@@ -36,7 +38,7 @@ function colorBoard() {
 }
 
 function colorSquare(e) {
-    e.target.style.backgroundColor = 'black';
+    e.target.style.backgroundColor = colorSelection;
 }
 
 function eraseBoard() {
@@ -71,4 +73,8 @@ function toggleErase() {
 function resetErase() {
     eraseToggled = true;
     eraseButton.style.backgroundColor = 'rgb(221, 221, 221)';
+}
+
+function getColor() {
+    colorSelection = this.value;
 }
