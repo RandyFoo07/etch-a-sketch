@@ -107,12 +107,15 @@ function changeBorderVisibility() {
     if (borderToggle === 'grey') {
         squareDiv.forEach(square => square.style.border = 'solid 0.5px #000');
         borderToggle = 'black';
+        borderButton.textContent = 'No Border';
     } else if (borderToggle === 'black') {
         squareDiv.forEach(square => square.style.border = 'solid 0.5px transparent');
         borderToggle = 'transparent';
+        borderButton.textContent = 'Light Grey Border';
     } else if (borderToggle === 'transparent') {
         squareDiv.forEach(square => square.style.border = 'solid 0.5px #f3f3f3');
         borderToggle = 'grey';
+        borderButton.textContent = 'Black Border';
     }
 }
 
