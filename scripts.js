@@ -2,6 +2,13 @@ const sketchPad = document.querySelector('.sketchPad');
 const resizeButton = document.querySelector('.left #resize');
 const clearButton = document.querySelector('.left #clear');
 const eraseButton = document.querySelector('.left #erase');
+const colorPicker = document.querySelector('#colorPicker');
+const redButton = document.querySelector('#red');
+const blueButton = document.querySelector('#blue');
+const yellowButton = document.querySelector('#yellow');
+const purpleButton = document.querySelector('#purple');
+const greenButton = document.querySelector('#green');
+const orangeButton = document.querySelector('#orange');
 
 let size = 16;
 let squareDiv = [];
@@ -10,10 +17,17 @@ let colorSelection = 'black';
 
 setSize(size, squareDiv);
 
-document.querySelector('#colorPicker').onchange = getColor;
+colorPicker.addEventListener('click', getColor);
+colorPicker.onchange = getColor;
 resizeButton.addEventListener('click', resizeBoard);
 clearButton.addEventListener('click', clearBoard);
 eraseButton.addEventListener('click', toggleErase);
+redButton.addEventListener('click', changeColor);
+blueButton.addEventListener('click', changeColor);
+yellowButton.addEventListener('click', changeColor);
+purpleButton.addEventListener('click', changeColor);
+greenButton.addEventListener('click', changeColor);
+orangeButton.addEventListener('click', changeColor);
 
 function setSize(num, array) {
     sketchPad.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
@@ -77,4 +91,8 @@ function resetErase() {
 
 function getColor() {
     colorSelection = this.value;
+}
+
+function changeColor(e) {
+    colorSelection = e.target.id;
 }

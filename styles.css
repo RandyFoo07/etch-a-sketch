@@ -22,12 +22,12 @@ header h1 {
 }
 
 .sketchPad {   
+    display: grid;
     position: relative;
     background-color: #f3f3f3;
     margin: 0 50px;
     height: 90vh;
     width: 90vh;
-    display: grid;
 }
 
 .left {
@@ -37,7 +37,7 @@ header h1 {
     height: 90vh;
 }
 
-.left button {
+.left button, .right button {
     font-size: 20px;
     width: 100px;
     height: 100px;
@@ -47,18 +47,66 @@ header h1 {
 }
 
 .right {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 30px 30px 70px repeat(4, 1fr);
+    place-items: center;
     height: 90vh;
 }
 
-.right h3 {
+#pickerHeader {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#colorPicker {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100px;
+    height: 50px;
+    align-self: stretch;
+}
+
+#colorHeader {
     font-size: 20px;
+    align-self: end;
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 .squareDiv {
     background-color: #fff;
     border: solid 0.5px #f3f3f3;
 }
+
+#red {
+    background-color: red;
+    border: solid 5px rgb(221, 221, 221);
+}
+
+#blue {
+    background-color: blue;
+    border: solid 5px rgb(221, 221, 221);
+}
+
+#yellow {
+    background-color: yellow;
+    border: solid 5px rgb(221, 221, 221);
+}
+
+#purple {
+    background-color: purple;
+    border: solid 5px rgb(221, 221, 221);
+}
+
+#green {
+    background-color: green;
+    border: solid 5px rgb(221, 221, 221);
+}
+
+#orange {
+    background-color: orange;
+    border: solid 5px rgb(221, 221, 221);
+}
+
