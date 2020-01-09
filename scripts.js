@@ -10,12 +10,14 @@ const purpleButton = document.querySelector('#purple');
 const greenButton = document.querySelector('#green');
 const orangeButton = document.querySelector('#orange');
 const borderButton = document.querySelector('#border');
+const modeButton = document.querySelector('#mode');
 
 let size = 16;
 let squareDiv = [];
 let eraseToggled = true;
 let borderToggle = 'grey';
 let colorSelection = 'black';
+let colorMode = 'mouseover';
 
 setSize(size, squareDiv);
 
@@ -31,6 +33,7 @@ purpleButton.addEventListener('click', changeColor);
 greenButton.addEventListener('click', changeColor);
 orangeButton.addEventListener('click', changeColor);
 borderButton.addEventListener('click', changeBorderVisibility);
+modeButton.addEventListener('click', changeColorMode);
 
 function setSize(num, array) {
     sketchPad.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
@@ -50,8 +53,8 @@ function resizeBoard() {
 }
 
 function colorBoard() {
-    squareDiv.forEach(square => square.removeEventListener('mouseover', eraseSquare));
-    squareDiv.forEach(square => square.addEventListener('mouseover', colorSquare));
+    squareDiv.forEach(square => square.removeEventListener(colorMode, eraseSquare));
+    squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
 }
 
 function colorSquare(e) {
@@ -59,8 +62,8 @@ function colorSquare(e) {
 }
 
 function eraseBoard() {
-    squareDiv.forEach(square => square.removeEventListener('mouseover', colorSquare));
-    squareDiv.forEach(square => square.addEventListener('mouseover', eraseSquare));
+    squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
+    squareDiv.forEach(square => square.addEventListener(colorMode, eraseSquare));
 }
 
 function eraseSquare(e) {
@@ -110,5 +113,17 @@ function changeBorderVisibility() {
     } else if (borderToggle === 'transparent') {
         squareDiv.forEach(square => square.style.border = 'solid 0.5px #f3f3f3');
         borderToggle = 'grey';
+    }
+}
+
+function changeColorMode() {
+    if (colorMode === 'mouseover') {
+        squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
+        colorMode = 'click';
+        squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
+    } else if (colorMode === 'click') {
+        squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
+        colorMode = 'mouseover';
+        squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
     }
 }
