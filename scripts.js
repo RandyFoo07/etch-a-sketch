@@ -9,10 +9,12 @@ const yellowButton = document.querySelector('#yellow');
 const purpleButton = document.querySelector('#purple');
 const greenButton = document.querySelector('#green');
 const orangeButton = document.querySelector('#orange');
+const borderButton = document.querySelector('#border');
 
 let size = 16;
 let squareDiv = [];
 let eraseToggled = true;
+let borderToggle = 'grey';
 let colorSelection = 'black';
 
 setSize(size, squareDiv);
@@ -28,6 +30,7 @@ yellowButton.addEventListener('click', changeColor);
 purpleButton.addEventListener('click', changeColor);
 greenButton.addEventListener('click', changeColor);
 orangeButton.addEventListener('click', changeColor);
+borderButton.addEventListener('click', changeBorderVisibility);
 
 function setSize(num, array) {
     sketchPad.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
@@ -95,4 +98,17 @@ function getColor() {
 
 function changeColor(e) {
     colorSelection = e.target.id;
+}
+
+function changeBorderVisibility() {
+    if (borderToggle === 'grey') {
+        squareDiv.forEach(square => square.style.border = 'solid 0.5px #000');
+        borderToggle = 'black';
+    } else if (borderToggle === 'black') {
+        squareDiv.forEach(square => square.style.border = 'solid 0.5px transparent');
+        borderToggle = 'transparent';
+    } else if (borderToggle === 'transparent') {
+        squareDiv.forEach(square => square.style.border = 'solid 0.5px #f3f3f3');
+        borderToggle = 'grey';
+    }
 }
