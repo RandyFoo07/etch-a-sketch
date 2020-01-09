@@ -121,9 +121,11 @@ function changeColorMode() {
         squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
         colorMode = 'click';
         squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
+        modeButton.textContent = 'Hover to Color';
     } else if (colorMode === 'click') {
         squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
         colorMode = 'mouseover';
         squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
+        modeButton.textContent = 'Click to Color';
     }
 }
