@@ -11,6 +11,7 @@ const greenButton = document.querySelector('#green');
 const orangeButton = document.querySelector('#orange');
 const borderButton = document.querySelector('#border');
 const modeButton = document.querySelector('#mode');
+const rngButton = document.querySelector('#rng');
 
 let size = 16;
 let squareDiv = [];
@@ -34,6 +35,7 @@ greenButton.addEventListener('click', changeColor);
 orangeButton.addEventListener('click', changeColor);
 borderButton.addEventListener('click', changeBorderVisibility);
 modeButton.addEventListener('click', changeColorMode);
+rngButton.addEventListener('click', rngColor);
 
 function setSize(num, array) {
     sketchPad.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
@@ -57,9 +59,6 @@ function colorBoard() {
     squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
 }
 
-function colorSquare(e) {
-    e.target.style.backgroundColor = colorSelection;
-}
 
 function eraseBoard() {
     squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
@@ -101,6 +100,8 @@ function getColor() {
 
 function changeColor(e) {
     colorSelection = e.target.id;
+    squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
+
 }
 
 function changeBorderVisibility() {
@@ -132,3 +133,28 @@ function changeColorMode() {
         modeButton.textContent = 'Click to Color';
     }
 }
+
+function rngColor() {
+    squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
+    for (let i = 0; i < squareDiv.length; i++) {
+        squareDiv[i].addEventListener(colorMode, rngColorSquare);
+    }
+}
+
+
+function colorSquare(e) {
+    e.target.style.backgroundColor = colorSelection;
+}
+
+function rngColorSquare(e) {
+    let redRng = Math.floor(Math.random() * 256);
+    let blueRng = Math.floor(Math.random() * 256);
+    let greenRng = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = `rgb(${redRng}, ${blueRng}, ${greenRng})`;
+}
+
+
+
+
+//pencil mode
+//rgb mode
