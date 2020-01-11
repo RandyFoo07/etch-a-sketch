@@ -8,3 +8,5 @@ A browser version of Etch A Sketch
 * Use HTML DOM event **mouseover** for coloring when hovering mouse over divs
 * Use event **onchange** with color picker to save its value in a variable whenever change is detected
 * Use **removeEventListener** as event listeners cannot be overwritten
+* Use CSS property **opacity** for divs and manipulate its values to create darkening effect for pencil function
+
