@@ -15,7 +15,8 @@ const rngButton = document.querySelector('#rng');
 
 let size = 16;
 let squareDiv = [];
-let eraseToggled = true;
+let eraseToggled = false;
+let rngToggled = false;
 let borderToggle = 'grey';
 let colorSelection = 'black';
 let colorMode = 'mouseover';
@@ -45,7 +46,11 @@ function setSize(num, array) {
         array[i].classList.add('squareDiv');
         sketchPad.appendChild(array[i]);
     }
-    colorBoard();
+    if (rngToggled === false) {
+        colorBoard();
+    } else {
+        rngColor();
+    }
 }
 
 function resizeBoard() {
@@ -56,12 +61,14 @@ function resizeBoard() {
 
 function colorBoard() {
     squareDiv.forEach(square => square.removeEventListener(colorMode, eraseSquare));
+    squareDiv.forEach(square => square.removeEventListener(colorMode, rngColorSquare));
     squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
 }
 
 
 function eraseBoard() {
     squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
+    squareDiv.forEach(square => square.removeEventListener(colorMode, rngColorSquare));
     squareDiv.forEach(square => square.addEventListener(colorMode, eraseSquare));
 }
 
@@ -70,6 +77,7 @@ function eraseSquare(e) {
 }
 
 function clearBoard() {
+    eraseToggled = false;
     squareDiv = [];
     sketchPad.innerHTML = '';
     resetErase();
@@ -78,27 +86,32 @@ function clearBoard() {
 }
 
 function toggleErase() {
+    eraseToggled = true;
     if (eraseToggled === true) {
         eraseBoard();
-        eraseButton.style.backgroundColor = '#888';
-        eraseToggled = false;
     } else {
-        colorBoard();
-        eraseButton.style.backgroundColor = 'rgb(221, 221, 221)';
-        eraseToggled = true;
+        if (rngToggled === true) {
+            rngColor()
+        } else {
+            colorBoard();
+        }
     }
 }
 
 function resetErase() {
-    eraseToggled = true;
+    eraseToggled = false;
     eraseButton.style.backgroundColor = 'rgb(221, 221, 221)';
 }
 
 function getColor() {
+    eraseToggled = false;
+    rngToggled = false;
     colorSelection = this.value;
 }
 
 function changeColor(e) {
+    eraseToggled = false;
+    rngToggled = false;
     colorSelection = e.target.id;
     squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
 
@@ -122,19 +135,43 @@ function changeBorderVisibility() {
 
 function changeColorMode() {
     if (colorMode === 'mouseover') {
+        squareDiv.forEach(square => square.removeEventListener(colorMode, rngColorSquare));
         squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
+        squareDiv.forEach(square => square.removeEventListener(colorMode, eraseSquare));
+
         colorMode = 'click';
-        squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
+        if (rngToggled === true) {
+            rngColor();
+        } else if (rngToggled === false) {
+            if (eraseToggled === true) {
+                eraseBoard();
+            } else {
+                colorBoard();
+            }
+        }
         modeButton.textContent = 'Hover to Color';
     } else if (colorMode === 'click') {
+        squareDiv.forEach(square => square.removeEventListener(colorMode, rngColorSquare));
         squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
+        squareDiv.forEach(square => square.removeEventListener(colorMode, eraseSquare));
         colorMode = 'mouseover';
-        squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
+        if (rngToggled === true) {
+            rngColor();
+        } else if (rngToggled === false) {
+            if (eraseToggled === true) {
+                eraseBoard();
+            } else {
+                colorBoard();
+            }
+        }
         modeButton.textContent = 'Click to Color';
     }
 }
 
 function rngColor() {
+    eraseToggled = false;
+    rngToggled = true;
+    squareDiv.forEach(square => square.removeEventListener(colorMode, eraseSquare));
     squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
     for (let i = 0; i < squareDiv.length; i++) {
         squareDiv[i].addEventListener(colorMode, rngColorSquare);
