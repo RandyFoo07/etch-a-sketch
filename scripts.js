@@ -57,6 +57,8 @@ function setSize(num, array) {
         eraseBoard();
     } else if (pencilToggled === true) {
         pencilMode();
+    } else {
+        colorBoard();
     }
 }
 
@@ -242,8 +244,3 @@ function pencilSquare(e) {
 
     e.target.style.opacity = currentOpacity += 0.1;
 }
-
-
-
-
-//pencil mode
