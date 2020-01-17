@@ -1,5 +1,7 @@
 body {
     text-align: center;
+    background: no-repeat url(assets/background1.png);
+    background-size: 100%;
 }
 
 button:focus {
