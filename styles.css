@@ -1,7 +1,6 @@
 body {
     text-align: center;
-    background: no-repeat url(assets/background1.png);
-    background-size: 100%;
+    background: url(assets/geometry_red.png);
 }
 
 button:focus {
@@ -25,7 +24,6 @@ header {
 }
 
 header h1 {
-    align-self: center;
     margin: 5px 0;
 }
 
