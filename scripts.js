@@ -66,7 +66,6 @@ function setSize(num, array) {
 
 function resizeBoard() {
     size = Number(prompt('What size to resize to (default = 16 (16x16))'));
-    resetErase();
     clearBoard();
 }
 
@@ -100,21 +99,20 @@ function clearBoard() {
 }
 
 function toggleErase() {
-    pencilToggled = false;
-    pencilButton.classList.toggle("active", false);
-    rngToggled = false;
-    rngButton.classList.toggle("active", false);
-    eraseToggled = true;
-    eraseButton.classList.toggle("active", true);
-
-    colorPickArea.classList.toggle("active", false);
-
-
     if (colorButtonName !== '') {
         colorButtonName.classList.toggle("activeC", false);
     }
 
+    pencilToggled = false;
+    pencilButton.classList.toggle("active", false);
 
+    rngToggled = false;
+    rngButton.classList.toggle("active", false);
+
+    colorPickArea.classList.toggle("active", false);
+
+    eraseToggled = true;
+    eraseButton.classList.toggle("active", true);
 
     eraseBoard();
 }
@@ -133,8 +131,9 @@ function getColor() {
     rngToggled = false;
     rngButton.classList.toggle("active", false);
 
-    colorSelection = this.value;
     colorPickArea.classList.toggle("active", true);
+
+    colorSelection = this.value;
 
     colorBoard();
 }
@@ -143,8 +142,8 @@ function changeColor(e) {
     if (colorButtonName !== '') {
         colorButtonName.classList.toggle("activeC", false);
     }
-    colorPickArea.classList.toggle("active", false);
 
+    colorPickArea.classList.toggle("active", false);
 
     pencilToggled = false;
     pencilButton.classList.toggle("active", false);
@@ -154,7 +153,6 @@ function changeColor(e) {
 
     rngToggled = false;
     rngButton.classList.toggle("active", false);
-
 
     colorSelection = e.target.id;
     colorButtonName = e.target;
@@ -231,21 +229,20 @@ function changeColorMode() {
 }
 
 function rngColor() {
+    if (colorButtonName !== '') {
+        colorButtonName.classList.toggle("activeC", false);
+    }
+
     pencilToggled = false;
     pencilButton.classList.toggle("active", false);
 
     eraseToggled = false;
     eraseButton.classList.toggle("active", false);
 
-    if (colorButtonName !== '') {
-        colorButtonName.classList.toggle("activeC", false);
-    }
-
     colorPickArea.classList.toggle("active", false);
 
     rngToggled = true;
     rngButton.classList.toggle("active", true);
-
 
     squareDiv.forEach(square => square.removeEventListener(colorMode, pencilSquare));
     squareDiv.forEach(square => square.removeEventListener(colorMode, eraseSquare));
@@ -268,21 +265,20 @@ function rngColorSquare(e) {
 }
 
 function pencilMode() {
-    pencilToggled = true;
-    pencilButton.classList.toggle("active", true);
+    if (colorButtonName !== '') {
+        colorButtonName.classList.toggle("activeC", false);
+    }
+
     eraseToggled = false;
     eraseButton.classList.toggle("active", false);
+
     rngToggled = false;
     rngButton.classList.toggle("active", false);
 
     colorPickArea.classList.toggle("active", false);
 
-
-    if (colorButtonName !== '') {
-        colorButtonName.classList.toggle("activeC", false);
-    }
-
-
+    pencilToggled = true;
+    pencilButton.classList.toggle("active", true);
 
     squareDiv.forEach(square => square.removeEventListener(colorMode, rngColorSquare));
     squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
