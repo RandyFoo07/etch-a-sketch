@@ -24,6 +24,7 @@ button {
     margin: 10px;
     background-color: #ffd3b5;
     transition: 0.1s;
+    box-shadow: 0px 0px 10px 2px #df666e;
 }
 
 button:hover {
@@ -99,6 +100,8 @@ header h1 {
     padding: 5px 40px 5px 40px;
     align-self: end;
     border-radius: 5%;
+    box-shadow: 0px 0px 10px 2px #df666e;
+
 } 
 
 #colorPicker {
