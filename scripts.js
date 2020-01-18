@@ -109,8 +109,6 @@ function toggleErase() {
 
 function resetErase() {
     eraseToggled = false;
-
-    eraseButton.style.backgroundColor = 'rgb(221, 221, 221)';
 }
 
 function getColor() {
