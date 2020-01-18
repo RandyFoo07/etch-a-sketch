@@ -23,6 +23,17 @@ button {
     border-radius: 50%;
     margin: 10px;
     background-color: #ffd3b5;
+    transition: 0.1s;
+}
+
+button:hover {
+    background-color: #dcedc2;
+    color: #db5d65;
+}
+
+button:active {
+    background-color: #fdae79;
+    color: #be3f48;
 }
 
 header {
@@ -34,7 +45,7 @@ header {
 
 header h1 {
     margin: 5px 0;
-    color: #a81c25;
+    color: #d61320;
     font-size: 40px;
     letter-spacing: 1px;
     text-shadow: 1px 1px 5px #FFF;
@@ -72,6 +83,7 @@ header h1 {
     height: 85vh;
 }
 
+
 #pickerHeader {
     color: #be3f48;
     grid-column-start: 1;
@@ -86,7 +98,6 @@ header h1 {
     background-color: #ffd3b5;
     padding: 5px 40px 5px 40px;
     align-self: end;
-    border: 0px solid transparent;
     border-radius: 5%;
 } 
 
@@ -131,3 +142,10 @@ header h1 {
     border: solid 5px #ffd3b5;
 }
 
+#red:hover, #blue:hover, #yellow:hover, #purple:hover, #green:hover, #orange:hover {
+    border-color: #dcedc2;
+}
+
+#red:active, #blue:active, #yellow:active, #purple:active, #green:active, #orange:active {
+    border-color: #fdae79;
+}
