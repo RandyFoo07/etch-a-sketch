@@ -13,6 +13,7 @@ const borderButton = document.querySelector('#border');
 const modeButton = document.querySelector('#mode');
 const rngButton = document.querySelector('#rng');
 const pencilButton = document.querySelector('#pencil');
+const colorPickArea = document.querySelector('#colorPickArea');
 
 let size = 16;
 let squareDiv = [];
@@ -108,7 +109,13 @@ function toggleErase() {
     eraseToggled = true;
     eraseButton.classList.toggle("active", true);
 
-    colorButtonName.classList.toggle("activeC", false);
+    colorPickArea.classList.toggle("active", false);
+
+
+    if (colorButtonName !== '') {
+        colorButtonName.classList.toggle("activeC", false);
+    }
+
 
 
     eraseBoard();
@@ -120,6 +127,10 @@ function resetErase() {
 }
 
 function getColor() {
+    if (colorButtonName !== '') {
+        colorButtonName.classList.toggle("activeC", false);
+    }
+
     pencilToggled = false;
     pencilButton.classList.toggle("active", false);
 
@@ -130,6 +141,7 @@ function getColor() {
     rngButton.classList.toggle("active", false);
 
     colorSelection = this.value;
+    colorPickArea.classList.toggle("active", true);
 
     colorBoard();
 }
@@ -138,6 +150,8 @@ function changeColor(e) {
     if (colorButtonName !== '') {
         colorButtonName.classList.toggle("activeC", false);
     }
+    colorPickArea.classList.toggle("active", false);
+
 
     pencilToggled = false;
     pencilButton.classList.toggle("active", false);
@@ -230,8 +244,11 @@ function rngColor() {
     eraseToggled = false;
     eraseButton.classList.toggle("active", false);
 
-    colorButtonName.classList.toggle("activeC", false);
+    if (colorButtonName !== '') {
+        colorButtonName.classList.toggle("activeC", false);
+    }
 
+    colorPickArea.classList.toggle("active", false);
 
     rngToggled = true;
     rngButton.classList.toggle("active", true);
@@ -265,7 +282,12 @@ function pencilMode() {
     rngToggled = false;
     rngButton.classList.toggle("active", false);
 
-    colorButtonName.classList.toggle("activeC", false);
+    colorPickArea.classList.toggle("active", false);
+
+
+    if (colorButtonName !== '') {
+        colorButtonName.classList.toggle("activeC", false);
+    }
 
 
 

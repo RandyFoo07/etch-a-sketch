@@ -151,8 +151,8 @@ header h1 {
 }
 
 .active {
-    background-color: #b1d67a;
-    color: #e45962;
+    background-color: #b1d67a!important;
+    color: #e45962!important;
 }
 
 .activeC {
