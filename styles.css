@@ -34,6 +34,10 @@ header {
 
 header h1 {
     margin: 5px 0;
+    color: #a81c25;
+    font-size: 40px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 5px #FFF;
 }
 
 .sketchArea {
