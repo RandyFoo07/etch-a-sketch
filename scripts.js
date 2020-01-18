@@ -22,6 +22,7 @@ let pencilToggled = false;
 let borderToggle = 'grey';
 let colorSelection = 'black';
 let colorMode = 'mouseover';
+let colorButtonName = '';
 
 setSize(size, squareDiv);
 
@@ -107,6 +108,9 @@ function toggleErase() {
     eraseToggled = true;
     eraseButton.classList.toggle("active", true);
 
+    colorButtonName.classList.toggle("activeC", false);
+
+
     eraseBoard();
 }
 
@@ -131,6 +135,10 @@ function getColor() {
 }
 
 function changeColor(e) {
+    if (colorButtonName !== '') {
+        colorButtonName.classList.toggle("activeC", false);
+    }
+
     pencilToggled = false;
     pencilButton.classList.toggle("active", false);
 
@@ -142,6 +150,8 @@ function changeColor(e) {
 
 
     colorSelection = e.target.id;
+    colorButtonName = e.target;
+    colorButtonName.classList.toggle("activeC", true);
 
     squareDiv.forEach(square => square.removeEventListener(colorMode, pencilSquare));
     squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
@@ -220,6 +230,9 @@ function rngColor() {
     eraseToggled = false;
     eraseButton.classList.toggle("active", false);
 
+    colorButtonName.classList.toggle("activeC", false);
+
+
     rngToggled = true;
     rngButton.classList.toggle("active", true);
 
@@ -251,6 +264,9 @@ function pencilMode() {
     eraseButton.classList.toggle("active", false);
     rngToggled = false;
     rngButton.classList.toggle("active", false);
+
+    colorButtonName.classList.toggle("activeC", false);
+
 
 
     squareDiv.forEach(square => square.removeEventListener(colorMode, rngColorSquare));
