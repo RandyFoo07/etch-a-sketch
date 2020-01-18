@@ -54,6 +54,7 @@ header h1 {
     margin: 0 50px;
     height: 85vh;
     width: 85vh;
+    box-shadow: 5px 5px 10px 5px #be3f48;
 }
 
 .left {
@@ -63,11 +64,10 @@ header h1 {
     height: 85vh;
 }
 
-
 .right {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows:  repeat(7, 1fr);
+    grid-template-rows:  repeat(5, 1fr);
     place-items: center;
     height: 85vh;
 }
@@ -76,12 +76,22 @@ header h1 {
     color: #be3f48;
     grid-column-start: 1;
     grid-column-end: 3;
+    margin: 0;
+    font-weight: normal;
 }
 
-#colorPicker {
+#colorPickArea {
     grid-column-start: 1;
     grid-column-end: 3;
-    width: 100px;
+    background-color: #ffd3b5;
+    padding: 5px 40px 5px 40px;
+    align-self: end;
+    border: 0px solid transparent;
+    border-radius: 5%;
+} 
+
+#colorPicker {
+    width: 80px;
     height: 50px;
     align-self: stretch;
 }
