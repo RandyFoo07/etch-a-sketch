@@ -149,3 +149,11 @@ header h1 {
 #red:active, #blue:active, #yellow:active, #purple:active, #green:active, #orange:active {
     border-color: #fdae79;
 }
+
+.active {
+    background-color: #dcedc2;
+}
+
+.activeC {
+    border-color: #dcedc2;
+}
