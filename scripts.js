@@ -94,10 +94,8 @@ function eraseSquare(e) {
 }
 
 function clearBoard() {
-    eraseToggled = false;
     squareDiv = [];
     sketchPad.innerHTML = '';
-    resetErase();
     setSize(size, squareDiv);
 }
 
@@ -119,11 +117,6 @@ function toggleErase() {
 
 
     eraseBoard();
-}
-
-function resetErase() {
-    eraseToggled = false;
-    eraseButton.classList.toggle("active", false);
 }
 
 function getColor() {
