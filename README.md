@@ -12,3 +12,7 @@ A browser version of Etch A Sketch
 * Use **removeEventListener** as event listeners cannot be overwritten
 * Use CSS property **opacity** for divs and manipulate its values to create darkening effect for pencil function
 
+##### Possible Future Implementations
+* Color Pencil Modes
+* Save feature
+* Mobile Responsive Version
