@@ -53,15 +53,7 @@ function setSize(num, array) {
         sketchPad.appendChild(array[i]);
     }
 
-    if (rngToggled === true) {
-        rngColor();
-    } else if (eraseToggled === true) {
-        eraseBoard();
-    } else if (pencilToggled === true) {
-        pencilMode();
-    } else {
-        colorBoard();
-    }
+    currentMode();
 }
 
 function resizeBoard() {
@@ -193,15 +185,7 @@ function changeColorMode() {
 
         colorMode = 'click';
 
-        if (rngToggled === true) {
-            rngColor();
-        } else if (eraseToggled === true) {
-            eraseBoard();
-        } else if (pencilToggled === true) {
-            pencilMode();
-        } else {
-            colorBoard();
-        }
+        currentMode();
 
         modeButton.textContent = 'Hover to Color';
 
@@ -213,15 +197,7 @@ function changeColorMode() {
 
         colorMode = 'mouseover';
 
-        if (rngToggled === true) {
-            rngColor();
-        } else if (eraseToggled === true) {
-            eraseBoard();
-        } else if (pencilToggled === true) {
-            pencilMode();
-        } else {
-            colorBoard();
-        }
+        currentMode();
 
         modeButton.textContent = 'Click to Color';
 
@@ -293,4 +269,16 @@ function pencilSquare(e) {
     let currentOpacity = Number(e.target.style.opacity);
 
     e.target.style.opacity = currentOpacity += 0.1;
+}
+
+function currentMode() {
+    if (rngToggled === true) {
+        rngColor();
+    } else if (eraseToggled === true) {
+        eraseBoard();
+    } else if (pencilToggled === true) {
+        pencilMode();
+    } else {
+        colorBoard();
+    }
 }
