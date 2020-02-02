@@ -27,17 +27,17 @@ let colorButtonName = '';
 
 setSize(size, squareDiv);
 
-colorPicker.addEventListener('click', getColor);
-colorPicker.onchange = getColor;
+colorPicker.addEventListener('click', getCustomColor);
+colorPicker.onchange = getCustomColor;
 resizeButton.addEventListener('click', resizeBoard);
 clearButton.addEventListener('click', clearBoard);
 eraseButton.addEventListener('click', toggleErase);
-redButton.addEventListener('click', changeColor);
-blueButton.addEventListener('click', changeColor);
-yellowButton.addEventListener('click', changeColor);
-purpleButton.addEventListener('click', changeColor);
-greenButton.addEventListener('click', changeColor);
-orangeButton.addEventListener('click', changeColor);
+redButton.addEventListener('click', getColor);
+blueButton.addEventListener('click', getColor);
+yellowButton.addEventListener('click', getColor);
+purpleButton.addEventListener('click', getColor);
+greenButton.addEventListener('click', getColor);
+orangeButton.addEventListener('click', getColor);
 borderButton.addEventListener('click', changeBorderVisibility);
 modeButton.addEventListener('click', changeColorMode);
 rngButton.addEventListener('click', rngColor);
@@ -82,60 +82,21 @@ function clearBoard() {
 }
 
 function toggleErase() {
-    if (colorButtonName !== '') {
-        colorButtonName.classList.toggle("activeC", false);
-    }
-
-    pencilToggled = false;
-    pencilButton.classList.toggle("active", false);
-
-    rngToggled = false;
-    rngButton.classList.toggle("active", false);
-
-    colorPickArea.classList.toggle("active", false);
-
-    eraseToggled = true;
-    eraseButton.classList.toggle("active", true);
+    toggleMode('erase');
 
     eraseBoard();
 }
 
-function getColor() {
-    if (colorButtonName !== '') {
-        colorButtonName.classList.toggle("activeC", false);
-    }
-
-    pencilToggled = false;
-    pencilButton.classList.toggle("active", false);
-
-    eraseToggled = false;
-    eraseButton.classList.toggle("active", false);
-
-    rngToggled = false;
-    rngButton.classList.toggle("active", false);
-
-    colorPickArea.classList.toggle("active", true);
+function getCustomColor() {
+    toggleMode('custom');
 
     colorSelection = this.value;
 
     colorBoard();
 }
 
-function changeColor(e) {
-    if (colorButtonName !== '') {
-        colorButtonName.classList.toggle("activeC", false);
-    }
-
-    colorPickArea.classList.toggle("active", false);
-
-    pencilToggled = false;
-    pencilButton.classList.toggle("active", false);
-
-    eraseToggled = false;
-    eraseButton.classList.toggle("active", false);
-
-    rngToggled = false;
-    rngButton.classList.toggle("active", false);
+function getColor(e) {
+    toggleMode('color');
 
     colorSelection = e.target.id;
     colorButtonName = e.target;
@@ -190,20 +151,7 @@ function changeColorMode() {
 }
 
 function rngColor() {
-    if (colorButtonName !== '') {
-        colorButtonName.classList.toggle("activeC", false);
-    }
-
-    pencilToggled = false;
-    pencilButton.classList.toggle("active", false);
-
-    eraseToggled = false;
-    eraseButton.classList.toggle("active", false);
-
-    colorPickArea.classList.toggle("active", false);
-
-    rngToggled = true;
-    rngButton.classList.toggle("active", true);
+    toggleMode('rng');
 
     modifyMode('rng');
 }
@@ -220,20 +168,7 @@ function rngColorSquare(e) {
 }
 
 function pencilMode() {
-    if (colorButtonName !== '') {
-        colorButtonName.classList.toggle("activeC", false);
-    }
-
-    eraseToggled = false;
-    eraseButton.classList.toggle("active", false);
-
-    rngToggled = false;
-    rngButton.classList.toggle("active", false);
-
-    colorPickArea.classList.toggle("active", false);
-
-    pencilToggled = true;
-    pencilButton.classList.toggle("active", true);
+    toggleMode('pencil');
 
     modifyMode('pencil');
 }
@@ -292,6 +227,91 @@ function modifyMode(mode) {
             squareDiv.forEach(square => square.removeEventListener(colorMode, colorSquare));
             squareDiv.forEach(square => square.removeEventListener(colorMode, eraseSquare));
             squareDiv.forEach(square => square.removeEventListener(colorMode, pencilSquare));
+            break;
+    }
+}
+
+function toggleMode(mode) {
+    switch (mode) {
+        case 'pencil':
+            if (colorButtonName !== '') {
+                colorButtonName.classList.toggle("activeC", false);
+            }
+
+            eraseToggled = false;
+            eraseButton.classList.toggle("active", false);
+
+            rngToggled = false;
+            rngButton.classList.toggle("active", false);
+
+            colorPickArea.classList.toggle("active", false);
+
+            pencilToggled = true;
+            pencilButton.classList.toggle("active", true);
+            break;
+        case 'color':
+            if (colorButtonName !== '') {
+                colorButtonName.classList.toggle("activeC", false);
+            }
+
+            colorPickArea.classList.toggle("active", false);
+
+            pencilToggled = false;
+            pencilButton.classList.toggle("active", false);
+
+            eraseToggled = false;
+            eraseButton.classList.toggle("active", false);
+
+            rngToggled = false;
+            rngButton.classList.toggle("active", false);
+            break;
+        case 'custom':
+            if (colorButtonName !== '') {
+                colorButtonName.classList.toggle("activeC", false);
+            }
+
+            pencilToggled = false;
+            pencilButton.classList.toggle("active", false);
+
+            eraseToggled = false;
+            eraseButton.classList.toggle("active", false);
+
+            rngToggled = false;
+            rngButton.classList.toggle("active", false);
+
+            colorPickArea.classList.toggle("active", true);
+            break;
+        case 'erase':
+            if (colorButtonName !== '') {
+                colorButtonName.classList.toggle("activeC", false);
+            }
+
+            pencilToggled = false;
+            pencilButton.classList.toggle("active", false);
+
+            rngToggled = false;
+            rngButton.classList.toggle("active", false);
+
+            colorPickArea.classList.toggle("active", false);
+
+            eraseToggled = true;
+            eraseButton.classList.toggle("active", true);
+            break;
+        case 'rng':
+            if (colorButtonName !== '') {
+                colorButtonName.classList.toggle("activeC", false);
+            }
+
+            pencilToggled = false;
+            pencilButton.classList.toggle("active", false);
+
+            eraseToggled = false;
+            eraseButton.classList.toggle("active", false);
+
+            colorPickArea.classList.toggle("active", false);
+
+            rngToggled = true;
+            rngButton.classList.toggle("active", true);
             break;
     }
 }
