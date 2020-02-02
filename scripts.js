@@ -53,7 +53,7 @@ function setSize(num, array) {
         sketchPad.appendChild(array[i]);
     }
 
-    currentMode();
+    findCurrentMode();
 }
 
 function resizeBoard() {
@@ -62,12 +62,11 @@ function resizeBoard() {
 }
 
 function colorBoard() {
-    toggleMode('color');
+    modifyMode('color');
 }
 
-
 function eraseBoard() {
-    toggleMode('erase');
+    modifyMode('erase');
 }
 
 function eraseSquare(e) {
@@ -170,20 +169,20 @@ function changeBorderVisibility() {
 
 function changeColorMode() {
     if (colorMode === 'mouseover') {
-        toggleMode('remove');
+        modifyMode('remove');
 
         colorMode = 'click';
 
-        currentMode();
+        findCurrentMode();
 
         modeButton.textContent = 'Hover to Color';
 
     } else if (colorMode === 'click') {
-        toggleMode('remove');
+        modifyMode('remove');
 
         colorMode = 'mouseover';
 
-        currentMode();
+        findCurrentMode();
 
         modeButton.textContent = 'Click to Color';
 
@@ -206,7 +205,7 @@ function rngColor() {
     rngToggled = true;
     rngButton.classList.toggle("active", true);
 
-    toggleMode('rng');
+    modifyMode('rng');
 }
 
 
@@ -236,7 +235,7 @@ function pencilMode() {
     pencilToggled = true;
     pencilButton.classList.toggle("active", true);
 
-    toggleMode('pencil');
+    modifyMode('pencil');
 }
 
 function pencilSquare(e) {
@@ -247,7 +246,7 @@ function pencilSquare(e) {
     e.target.style.opacity = currentOpacity += 0.1;
 }
 
-function currentMode() {
+function findCurrentMode() {
     if (rngToggled === true) {
         rngColor();
     } else if (eraseToggled === true) {
@@ -259,7 +258,7 @@ function currentMode() {
     }
 }
 
-function toggleMode(mode) {
+function modifyMode(mode) {
     switch (mode) {
         case 'pencil':
             squareDiv.forEach(square => square.removeEventListener(colorMode, rngColorSquare));
