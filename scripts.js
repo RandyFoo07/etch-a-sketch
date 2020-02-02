@@ -71,7 +71,6 @@ function eraseBoard() {
 
 function eraseSquare(e) {
     e.target.style.opacity = '';
-
     e.target.style.backgroundColor = 'white';
 }
 
@@ -83,15 +82,12 @@ function clearBoard() {
 
 function toggleErase() {
     toggleMode('erase');
-
     eraseBoard();
 }
 
 function getCustomColor() {
     toggleMode('custom');
-
     colorSelection = this.value;
-
     colorBoard();
 }
 
@@ -102,13 +98,11 @@ function getColor(e) {
     colorButtonName = e.target;
     colorButtonName.classList.toggle("activeC", true);
 
-    squareDiv.forEach(square => square.removeEventListener(colorMode, pencilSquare));
-    squareDiv.forEach(square => square.addEventListener(colorMode, colorSquare));
+    modifyMode('color');
 }
 
 function colorSquare(e) {
     e.target.style.opacity = '';
-
     e.target.style.backgroundColor = colorSelection;
 }
 
@@ -131,28 +125,19 @@ function changeBorderVisibility() {
 function changeColorMode() {
     if (colorMode === 'mouseover') {
         modifyMode('remove');
-
         colorMode = 'click';
-
         findCurrentMode();
-
         modeButton.textContent = 'Hover to Color';
-
     } else if (colorMode === 'click') {
         modifyMode('remove');
-
         colorMode = 'mouseover';
-
         findCurrentMode();
-
         modeButton.textContent = 'Click to Color';
-
     }
 }
 
 function rngColor() {
     toggleMode('rng');
-
     modifyMode('rng');
 }
 
@@ -169,15 +154,12 @@ function rngColorSquare(e) {
 
 function pencilMode() {
     toggleMode('pencil');
-
     modifyMode('pencil');
 }
 
 function pencilSquare(e) {
     e.target.style.backgroundColor = 'black';
-
     let currentOpacity = Number(e.target.style.opacity);
-
     e.target.style.opacity = currentOpacity += 0.1;
 }
 
