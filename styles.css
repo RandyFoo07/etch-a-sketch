@@ -9,10 +9,6 @@ body {
     font-family: Baloo Bhai;
 }
 
-button:focus {
-    outline: 0;
-}
-
 button {
     font-family: Baloo Bhai;
     color: #be3f48;
@@ -27,7 +23,7 @@ button {
     box-shadow: 0px 0px 10px 2px #df666e;
 }
 
-button:hover {
+button:hover, button:focus {
     background-color: #dcedc2;
     color: #db5d65;
 }
