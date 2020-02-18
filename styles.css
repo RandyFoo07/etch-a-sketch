@@ -9,6 +9,14 @@ body {
     font-family: Baloo Bhai;
 }
 
+header h1 {
+    margin: 0.2em 0;
+    color: #d61320;
+    font-size: 3rem;
+    letter-spacing: 0.025em;
+    text-shadow: 0.025em 0.025em 0.1em #FFF;
+}
+                        
 button {
     font-family: Baloo Bhai;
     color: #be3f48;
@@ -33,20 +41,6 @@ button:active {
     color: #be3f48;
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-header h1 {
-    margin: 5px 0;
-    color: #d61320;
-    font-size: 40px;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 5px #FFF;
-}
 
 .sketchArea {
     display: flex;
