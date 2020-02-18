@@ -20,15 +20,15 @@ header h1 {
 button {
     font-family: Baloo Bhai;
     color: #be3f48;
-    font-size: 20px;
-    width: 100px;
-    height: 100px;
-    border: solid 1px transparent;
+    font-size: 1.25rem;
+    width: 5em;
+    height: 5em;
+    border: solid 0.05em transparent;
     border-radius: 50%;
-    margin: 10px;
+    margin: 0.5em;
     background-color: #ffd3b5;
     transition: 0.1s;
-    box-shadow: 0px 0px 10px 2px #df666e;
+    box-shadow: 0 0 0.5em 0.1em #df666e;
 }
 
 button:hover, button:focus {
@@ -40,7 +40,6 @@ button:active {
     background-color: #fdae79;
     color: #be3f48;
 }
-
 
 .sketchArea {
     display: flex;
