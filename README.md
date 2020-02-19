@@ -1,5 +1,5 @@
 ## etch-a-sketch
-A browser version of Etch A Sketch
+A browser/mobile version of Etch A Sketch
 ### Notable Outcomes
 #### HTML5
 * Use **input** element of `type="color"` to create a color picker
@@ -15,4 +15,3 @@ A browser version of Etch A Sketch
 ##### Possible Future Implementations
 * Color Pencil Modes
 * Save feature
-* Mobile Responsive Version
