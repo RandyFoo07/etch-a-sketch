@@ -89,7 +89,6 @@ button:active {
     padding: 0.3125em 2.5em 0.3125em 2.5em;
     border-radius: 5%;
     box-shadow: 0 0 0.625em 0.125em #df666e;
-
 } 
 
 #colorPicker {
@@ -105,32 +104,32 @@ button:active {
 
 #red {
     background-color: red;
-    border: solid 5px #ffd3b5;
+    border: solid 0.3125em #ffd3b5;
 }
 
 #blue {
     background-color: blue;
-    border: solid 5px #ffd3b5;
+    border: solid 0.3125em #ffd3b5;
 }
 
 #yellow {
     background-color: yellow;
-    border: solid 5px #ffd3b5;
+    border: solid 0.3125em #ffd3b5;
 }
 
 #purple {
     background-color: purple;
-    border: solid 5px #ffd3b5;
+    border: solid 0.3125em #ffd3b5;
 }
 
 #green {
     background-color: green;
-    border: solid 5px #ffd3b5;
+    border: solid 0.3125em #ffd3b5;
 }
 
 #orange {
     background-color: orange;
-    border: solid 5px #ffd3b5;
+    border: solid 0.3125em #ffd3b5;
 }
 
 #red:hover, #blue:hover, #yellow:hover, #purple:hover, #green:hover, #orange:hover {
