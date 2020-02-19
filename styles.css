@@ -95,8 +95,8 @@ button:active {
 } 
 
 #colorPicker {
-    width: 5em;
-    height: 4em;
+    width: 5rem;
+    height: 4rem;
     align-self: stretch;
 }
 
@@ -154,8 +154,40 @@ button:active {
 
 /** Media queries **/
 
-/** tablets/phones **/
+/** tablets **/
 @media (max-width: 1275px) {
+    .sketchArea {
+        flex-direction: column;
+    }
+    .sketchPad {
+        height: 50vh;
+        width: 50vh;
+    }
+    .left {
+        flex-direction: row;
+        height: auto;
+        margin-bottom: 1.5em;
+    }
+    .right {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows:  repeat(2, 1fr);
+        height: auto;
+        margin-top: 1.5em;
+    }
+    #colorPickArea, #pickerHeader {
+        grid-column-start: 4;
+        grid-column-end: 6;
+    }
+    #mode {
+        display: none;
+    }
+}
+
+/** phones **/
+@media (max-width: 500px){
+    html {
+        font-size: 50%;
+    }
     .sketchArea {
         flex-direction: column;
     }
