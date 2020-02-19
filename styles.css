@@ -3,7 +3,7 @@
     src: url(assets/BalooBhai-Regular.ttf);
 }
 
-/**Main layout**/
+/** Main layout **/
 
 body {
     text-align: center;
@@ -43,7 +43,7 @@ body {
     height: 85vh;
 }
 
-/** Element styling**/
+/** Element styling **/
 
 header h1 {
     margin: 0.2em 0;
@@ -150,4 +150,32 @@ button:active {
 
 .activeC {
     border-color: #b1d67a!important;
+}
+
+/** Media queries **/
+
+/** tablets/phones **/
+@media (max-width: 1275px) {
+    .sketchArea {
+        flex-direction: column;
+    }
+    .sketchPad {
+        height: 45vh;
+        width: 45vh;
+    }
+    .left {
+        flex-direction: row;
+        height: auto;
+        margin-bottom: 2em;
+    }
+    .right {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows:  repeat(2, 1fr);
+        height: auto;
+        margin-top: 2em;
+    }
+    #colorPickArea, #pickerHeader {
+        grid-column-start: 4;
+        grid-column-end: 6;
+    }
 }
