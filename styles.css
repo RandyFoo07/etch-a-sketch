@@ -3,42 +3,12 @@
     src: url(assets/BalooBhai-Regular.ttf);
 }
 
+/**Main layout**/
+
 body {
     text-align: center;
     background: url(assets/geometry_red.png);
     font-family: Baloo Bhai;
-}
-
-header h1 {
-    margin: 0.2em 0;
-    color: #d61320;
-    font-size: 3rem;
-    letter-spacing: 0.025em;
-    text-shadow: 0.025em 0.025em 0.1em #FFF;
-}
-                        
-button {
-    font-family: Baloo Bhai;
-    color: #be3f48;
-    font-size: 1.25rem;
-    width: 5em;
-    height: 5em;
-    border: solid 0.05em transparent;
-    border-radius: 50%;
-    margin: 0.5em;
-    background-color: #ffd3b5;
-    transition: 0.1s;
-    box-shadow: 0 0 0.5em 0.1em #df666e;
-}
-
-button:hover, button:focus {
-    background-color: #dcedc2;
-    color: #db5d65;
-}
-
-button:active {
-    background-color: #fdae79;
-    color: #be3f48;
 }
 
 .sketchArea {
@@ -73,6 +43,39 @@ button:active {
     height: 85vh;
 }
 
+/** Element styling**/
+
+header h1 {
+    margin: 0.2em 0;
+    color: #d61320;
+    font-size: 3rem;
+    letter-spacing: 0.025em;
+    text-shadow: 0.025em 0.025em 0.1em #FFF;
+}
+
+button {
+    font-family: Baloo Bhai;
+    color: #be3f48;
+    font-size: 1.25rem;
+    width: 5em;
+    height: 5em;
+    border: solid 0.05em transparent;
+    border-radius: 50%;
+    margin: 0.5em;
+    background-color: #ffd3b5;
+    transition: 0.1s;
+    box-shadow: 0 0 0.5em 0.1em #df666e;
+}
+
+button:hover, button:focus {
+    background-color: #dcedc2;
+    color: #db5d65;
+}
+
+button:active {
+    background-color: #fdae79;
+    color: #be3f48;
+}
 
 #pickerHeader {
     color: #be3f48;
