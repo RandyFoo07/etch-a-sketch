@@ -43,19 +43,19 @@ button:active {
 
 .sketchArea {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    height: 85%;
+    width: 100%;
 }
 
-.sketchPad {   
+.sketchPad {
     display: grid;
-    position: relative;
     background-color: #f3f3f3;
-    margin: 0 50px;
+    margin: 0 3em;
     height: 85vh;
     width: 85vh;
-    box-shadow: 5px 5px 10px 5px #be3f48;
+    box-shadow: 0.3125em 0.3125em 0.625em 0.3125em #be3f48;
 }
 
 .left {
