@@ -1,8 +1,8 @@
-const sketchPad = document.querySelector('.sketchPad');
-const resizeButton = document.querySelector('.left #resize');
-const clearButton = document.querySelector('.left #clear');
-const eraseButton = document.querySelector('.left #erase');
-const colorPicker = document.querySelector('#colorPicker');
+const sketchPad = document.querySelector('.sketch-pad-middle');
+const resizeButton = document.querySelector('.buttons-left #resize');
+const clearButton = document.querySelector('.buttons-left #clear');
+const eraseButton = document.querySelector('.buttons-left #erase');
+const colorPicker = document.querySelector('#color-picker');
 const redButton = document.querySelector('#red');
 const blueButton = document.querySelector('#blue');
 const yellowButton = document.querySelector('#yellow');
@@ -13,7 +13,7 @@ const borderButton = document.querySelector('#border');
 const modeButton = document.querySelector('#mode');
 const rngButton = document.querySelector('#rng');
 const pencilButton = document.querySelector('#pencil');
-const colorPickArea = document.querySelector('#colorPickArea');
+const colorPickArea = document.querySelector('#color-pick-area');
 
 let size = 16;
 let squareDiv = [];

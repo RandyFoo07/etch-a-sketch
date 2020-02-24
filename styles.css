@@ -11,7 +11,7 @@ body {
     font-family: Baloo Bhai;
 }
 
-.sketchArea {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
     width: 100%;
 }
 
-.sketchPad {
+.sketch-pad-middle {
     display: grid;
     background-color: #f3f3f3;
     margin: 0 3em;
@@ -28,14 +28,14 @@ body {
     box-shadow: 0.3125em 0.3125em 0.625em 0.3125em #be3f48;
 }
 
-.left {
+.buttons-left {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 85vh;
 }
 
-.right {
+.buttons-right {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows:  repeat(5, 1fr);
@@ -77,7 +77,7 @@ button:active {
     color: #be3f48;
 }
 
-#pickerHeader {
+#color-pick-area-header {
     color: #be3f48;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -85,7 +85,7 @@ button:active {
     font-weight: normal;
 }
 
-#colorPickArea {
+#color-pick-area {
     grid-column-start: 1;
     grid-column-end: 3;
     background-color: #ffd3b5;
@@ -94,7 +94,7 @@ button:active {
     box-shadow: 0 0 0.625em 0.125em #df666e;
 } 
 
-#colorPicker {
+#color-picker {
     width: 5rem;
     height: 4rem;
     align-self: stretch;
@@ -156,25 +156,25 @@ button:active {
 
 /** tablets **/
 @media (max-width: 1275px) {
-    .sketchArea {
+    .container {
         flex-direction: column;
     }
-    .sketchPad {
+    .sketch-pad-middle {
         height: 50vh;
         width: 50vh;
     }
-    .left {
+    .buttons-left {
         flex-direction: row;
         height: auto;
         margin-bottom: 1.5em;
     }
-    .right {
+    .buttons-right {
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows:  repeat(2, 1fr);
         height: auto;
         margin-top: 1.5em;
     }
-    #colorPickArea, #pickerHeader {
+    #color-pick-area, #color-pick-area-header {
         grid-column-start: 4;
         grid-column-end: 6;
     }
@@ -188,25 +188,25 @@ button:active {
     html {
         font-size: 50%;
     }
-    .sketchArea {
+    .container {
         flex-direction: column;
     }
-    .sketchPad {
+    .sketch-pad-middle {
         height: 45vh;
         width: 45vh;
     }
-    .left {
+    .buttons-left {
         flex-direction: row;
         height: auto;
         margin-bottom: 2em;
     }
-    .right {
+    .buttons-right {
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows:  repeat(2, 1fr);
         height: auto;
         margin-top: 2em;
     }
-    #colorPickArea, #pickerHeader {
+    #color-pick-area, #color-pick-area-header {
         grid-column-start: 4;
         grid-column-end: 6;
     }
