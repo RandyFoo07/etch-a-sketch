@@ -1,19 +1,19 @@
 const sketchPad = document.querySelector('.sketch-pad-middle');
-const resizeButton = document.querySelector('.buttons-left #resize');
-const clearButton = document.querySelector('.buttons-left #clear');
-const eraseButton = document.querySelector('.buttons-left #erase');
-const colorPicker = document.querySelector('#color-picker');
-const redButton = document.querySelector('#red');
-const blueButton = document.querySelector('#blue');
-const yellowButton = document.querySelector('#yellow');
-const purpleButton = document.querySelector('#purple');
-const greenButton = document.querySelector('#green');
-const orangeButton = document.querySelector('#orange');
-const borderButton = document.querySelector('#border');
-const modeButton = document.querySelector('#mode');
-const rngButton = document.querySelector('#rng');
-const pencilButton = document.querySelector('#pencil');
-const colorPickArea = document.querySelector('#color-pick-area');
+const resizeButton = document.querySelector('.buttons-left .resize');
+const clearButton = document.querySelector('.buttons-left .clear');
+const eraseButton = document.querySelector('.buttons-left .erase');
+const colorPicker = document.querySelector('.color-picker');
+const redButton = document.querySelector('.red');
+const blueButton = document.querySelector('.blue');
+const yellowButton = document.querySelector('.yellow');
+const purpleButton = document.querySelector('.purple');
+const greenButton = document.querySelector('.green');
+const orangeButton = document.querySelector('.orange');
+const borderButton = document.querySelector('.border');
+const modeButton = document.querySelector('.mode');
+const rngButton = document.querySelector('.rng');
+const pencilButton = document.querySelector('.pencil');
+const colorPickArea = document.querySelector('.color-pick-area');
 
 let size = 16;
 let squareDiv = [];
@@ -94,7 +94,7 @@ function getCustomColor() {
 function getColor(e) {
     toggleMode('color');
 
-    colorSelection = e.target.id;
+    colorSelection = e.target.className;
     colorButtonName = e.target;
     colorButtonName.classList.toggle("activeC", true);
 
