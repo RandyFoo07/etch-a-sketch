@@ -1,6 +1,6 @@
-/*==========
+/* ==========
 Typography
-==========*/
+========== */
 @font-face {
     font-family: Baloo Bhai;
     src: url(assets/BalooBhai-Regular.ttf);
@@ -24,9 +24,9 @@ button {
 
 
 
-/*==========
+/* ==========
 Layout
-==========*/
+========== */
 body {
     text-align: center;
     background: url(assets/geometry_red.png);
@@ -184,12 +184,15 @@ button {
     border-color: #b1d67a;
 }
 
-/*==========
+/* ==========
 Media Queries
-==========*/
+========== */
 
 /** tablets **/
 @media (max-width: 1275px) {
+    /* ==========
+    Layout
+    ========== */
     .container {
         flex-direction: column;
     }
@@ -213,16 +216,25 @@ Media Queries
         grid-column-start: 4;
         grid-column-end: 6;
     }
-    #mode {
+    .mode {
         display: none;
     }
 }
 
 /** phones **/
 @media (max-width: 500px){
+    /* ==========
+    Typography
+    ========== */
     html {
         font-size: 50%;
     }
+
+
+
+    /* ==========
+    Layout
+    ========== */
     .container {
         flex-direction: column;
     }
@@ -246,7 +258,7 @@ Media Queries
         grid-column-start: 4;
         grid-column-end: 6;
     }
-    #mode {
+    .mode {
         display: none;
     }
 }
