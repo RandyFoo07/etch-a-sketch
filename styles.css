@@ -1,16 +1,38 @@
+/*==========
+Typography
+==========*/
 @font-face {
     font-family: Baloo Bhai;
     src: url(assets/BalooBhai-Regular.ttf);
 }
 
-/** Main layout **/
-
 body {
-    text-align: center;
-    background: url(assets/geometry_red.png);
     font-family: Baloo Bhai;
 }
 
+.header-title {
+    color: #d61320;
+    font-size: 3rem;
+    letter-spacing: 0.025em;
+    text-shadow: 0.025em 0.025em 0.1em #FFF;
+}
+
+button {
+    font-family: Baloo Bhai;
+    font-size: 1.25rem;
+}
+
+
+
+/*==========
+Layout
+==========*/
+body {
+    text-align: center;
+    background: url(assets/geometry_red.png);
+}
+
+/*main content section*/
 .container {
     display: flex;
     justify-content: center;
@@ -43,20 +65,20 @@ body {
     height: 85vh;
 }
 
-/** Element styling **/
-
-header h1 {
+.header-title {
     margin: 0.2em 0;
-    color: #d61320;
-    font-size: 3rem;
-    letter-spacing: 0.025em;
-    text-shadow: 0.025em 0.025em 0.1em #FFF;
 }
 
+/*each square generated on sketch-pad-middle*/
+.squareDiv {
+    background-color: #fff;
+    border: solid 0.5px #f3f3f3;
+}
+
+
+/*button section */
 button {
-    font-family: Baloo Bhai;
     color: #be3f48;
-    font-size: 1.25rem;
     width: 5em;
     height: 5em;
     border: solid 0.05em transparent;
@@ -67,17 +89,20 @@ button {
     box-shadow: 0 0 0.5em 0.1em #df666e;
 }
 
-button:hover, button:focus {
+.buttons-left button:hover,
+.rng:hover,
+.pencil:hover {
     background-color: #dcedc2;
     color: #db5d65;
 }
 
-button:active {
+.button-left button:active,
+.button-right button:active {
     background-color: #fdae79;
     color: #be3f48;
 }
 
-#color-pick-area-header {
+.color-pick-area-header {
     color: #be3f48;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -85,7 +110,7 @@ button:active {
     font-weight: normal;
 }
 
-#color-pick-area {
+.color-pick-area {
     grid-column-start: 1;
     grid-column-end: 3;
     background-color: #ffd3b5;
@@ -94,65 +119,74 @@ button:active {
     box-shadow: 0 0 0.625em 0.125em #df666e;
 } 
 
-#color-picker {
+.color-picker {
     width: 5rem;
     height: 4rem;
     align-self: stretch;
 }
 
-.squareDiv {
-    background-color: #fff;
-    border: solid 0.5px #f3f3f3;
-}
-
-#red {
+.red {
     background-color: red;
     border: solid 0.3125em #ffd3b5;
 }
 
-#blue {
+.blue {
     background-color: blue;
     border: solid 0.3125em #ffd3b5;
 }
 
-#yellow {
+.yellow {
     background-color: yellow;
     border: solid 0.3125em #ffd3b5;
 }
 
-#purple {
+.purple {
     background-color: purple;
     border: solid 0.3125em #ffd3b5;
 }
 
-#green {
+.green {
     background-color: green;
     border: solid 0.3125em #ffd3b5;
 }
 
-#orange {
+.orange {
     background-color: orange;
     border: solid 0.3125em #ffd3b5;
 }
 
-#red:hover, #blue:hover, #yellow:hover, #purple:hover, #green:hover, #orange:hover {
+.red:hover, 
+.blue:hover, 
+.yellow:hover, 
+.purple:hover, 
+.green:hover, 
+.orange:hover {
     border-color: #dcedc2;
 }
 
-#red:active, #blue:active, #yellow:active, #purple:active, #green:active, #orange:active {
+.red:active, 
+.blue:active, 
+.yellow:active, 
+.purple:active, 
+.green:active, 
+.orange:active {
     border-color: #fdae79;
 }
 
+/*after each button is clicked (except color buttons)*/
 .active {
-    background-color: #b1d67a!important;
-    color: #e45962!important;
+    background-color: #b1d67a;
+    color: #e45962;
 }
 
+/*when color buttons are clicked*/
 .activeC {
-    border-color: #b1d67a!important;
+    border-color: #b1d67a;
 }
 
-/** Media queries **/
+/*==========
+Media Queries
+==========*/
 
 /** tablets **/
 @media (max-width: 1275px) {
@@ -174,7 +208,8 @@ button:active {
         height: auto;
         margin-top: 1.5em;
     }
-    #color-pick-area, #color-pick-area-header {
+    .color-pick-area, 
+    .color-pick-area-header {
         grid-column-start: 4;
         grid-column-end: 6;
     }
@@ -206,7 +241,8 @@ button:active {
         height: auto;
         margin-top: 2em;
     }
-    #color-pick-area, #color-pick-area-header {
+    .color-pick-area, 
+    .color-pick-area-header {
         grid-column-start: 4;
         grid-column-end: 6;
     }
